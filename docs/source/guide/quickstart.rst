@@ -3,60 +3,57 @@
 Quickstart
 ==========
 
-This guide details the steps needed to install or update the AWS SDK for Python.
+* goal
+    * install or update -- the -- AWS SDK for Python
 
-The SDK is composed of two key Python packages: Botocore (the library providing the low-level
-functionality shared between the Python SDK and the AWS CLI) and Boto3 (the package implementing the
-Python SDK itself).
-
-.. note::
-
-    Documentation and developers tend to refer to the AWS SDK for Python as "Boto3," and this
-    documentation often does so as well.
+* AWS SDK for Python
+    * == Botocore + Boto3
+        * Botocore
+            * == Python package (library)
+            * provide
+                * low-level functionality / shared BETWEEN Python SDK -- & -- AWS CLI
+        * Boto3
+            * == package /
+                * implement the Python SDK itself
 
 Installation
 ------------
 
-To use Boto3, you first need to install it and its dependencies.
+* install Boto3 + its dependencies
 
 .. _quickstart_install_python:
 
 Install or update Python
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-Before installing Boto3, install Python 3.9 or later; support for Python 3.8 and
-earlier is deprecated. After the deprecation date listed for each Python
-version, new releases of Boto3 will not include support for that version of
-Python. For details, including the deprecation schedule and how to update your
-project to use Python 3.9, see :ref:`guide_migration_py3`.
-
-For information about how to get the latest version of Python, see the official `Python
-documentation <https://www.python.org/downloads/>`_.
+* install Python v3.9+
+    * Reason: 🧠Python v3.8- is deprecated🧠
+    * if you need to upgrade -> see :ref:`guide_migration_py3`
 
 Setup a virtual environment
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Once you have a supported version of Python installed, you should set up
-your workspace by creating a virtual environment and activate it::
+* provides
+    * isolated space | your installation
+* steps::
 
     $ python -m venv .venv
     ...
     $ source .venv/bin/activate
 
-This provides an isolated space for your installation that will avoid unexpected
-interactions with packages installed at the system level. Skipping this step may
-result in unexpected dependency conflicts or failures with other tools installed
-on your system.
+
+* Reason: 🧠avoid
+    * unexpected dependency conflicts OR
+    * failures -- with -- other tools installed | your system🧠
 
 Install Boto3
 ~~~~~~~~~~~~~
 
-Install the latest Boto3 release via :command:`pip`::
+::
 
     pip install boto3
 
-If your project requires a specific version of Boto3, or has compatibility concerns with
-certain versions, you may provide constraints when installing::
+* if your project requires a specific version -> ::
 
     # Install Boto3 version 1.0 specifically
     pip install boto3==1.0.0
@@ -67,14 +64,10 @@ certain versions, you may provide constraints when installing::
     # Avoid versions of Boto3 newer than version 1.15.3
     pip install boto3<=1.15.3
 
-.. note::
-
-   The latest development version of Boto3 is on `GitHub <https://github.com/boto/boto3>`_.
-
 Using the AWS Common Runtime (CRT)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-In addition to the default install of Boto3, you can choose to include the new `AWS Common Runtime <https://docs.aws.amazon.com/sdkref/latest/guide/common-runtime.html>`_
+* TODO: In addition to the default install of Boto3, you can choose to include the new `AWS Common Runtime <https://docs.aws.amazon.com/sdkref/latest/guide/common-runtime.html>`_
 (CRT). The AWS CRT is a collection of modular packages that serve as a new foundation for AWS SDKs.
 Each library provides better performance and minimal footprint for the functional area it
 implements. Using the CRT, SDKs can share the same base code when possible, improving consistency
@@ -142,26 +135,21 @@ creating connections. See :ref:`guide_configuration` for in-depth configuration 
 Using Boto3
 ------------
 
-To use Boto3, you must first import it and indicate which service or services you're going to use::
+::
 
     import boto3
 
-    # Let's use Amazon S3
+    # indicate AWS server / you are going to use
     s3 = boto3.resource('s3')
-
-Now that you have an ``s3`` resource, you can make send requests to the service. The following code uses the ``buckets`` collection to print out all bucket names::
 
     # Print out bucket names
     for bucket in s3.buckets.all():
         print(bucket.name)
 
-You can also upload and download binary data. For example, the following
-uploads a new file to S3, assuming that the bucket ``amzn-s3-demo-bucket``
-already exists::
-
-    # Upload a new file
+    # Upload a NEW file | EXISTING "amzn-s3-demo-bucket" S3 bucket
     with open('test.jpg', 'rb') as data:
         s3.Bucket('amzn-s3-demo-bucket').put_object(Key='test.jpg', Body=data)
 
-:ref:`guide_resources` and :ref:`guide_collections` are covered in more detail in the following
-sections.
+* see
+    * :ref:`guide_resources`
+    * :ref:`guide_collections`
