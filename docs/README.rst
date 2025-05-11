@@ -1,6 +1,8 @@
 Boto3 Documentation
 ~~~~~~~~~~~~~~~~~~~
 
+* `here <source/index.rst>`_
+
 Generating Documentation
 ~~~~~~~~~~~~~~~~~~~~~~~~
 * install `requirement-docs.txt <.requirements-docs.txt>`_
